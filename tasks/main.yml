@@ -1,5 +1,8 @@
 ---
-# tasks file for ansible-vagrant
 - name: installs vagrant
   yum:
     name: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.rpm
+
+- name: installs plugins
+  command: vagrant plugin install {{ item }}
+  with_items: "{{ vagrant_plugins }}"

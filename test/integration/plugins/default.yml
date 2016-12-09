@@ -1,0 +1,10 @@
+- hosts: localhost
+  # for the sake of testing, defaults/main.yml is not referenced
+  # as vars_files take precedence over vars, otherwise we could not
+  # override vagrant_plugins for this test
+  vars:
+    vagrant_version: 1.9.1
+    vagrant_plugins:
+      - vagrant-cachier
+  tasks:
+    - include: tasks/main.yml

@@ -12,3 +12,4 @@ platforms:
 
 suites:
   - name: default
+  - name: plugins
