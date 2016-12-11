@@ -3,6 +3,16 @@
   yum:
     name: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.rpm
 
-- name: installs plugins
-  command: vagrant plugin install {{ item }}
+- name: installs plugins with name but without version
+  command: vagrant plugin install {{ item.name }}
+  when: item.name is defined and item.version is undefined
   with_items: "{{ vagrant_plugins }}"
+  become: yes
+  become_user: "{{ vagrant_plugins_user }}"
+
+- name: installs plugins with name and version
+  command: vagrant plugin install {{ item.name }} --plugin-version {{ item.version }}
+  when: item.name is defined and item.version is defined
+  with_items: "{{ vagrant_plugins }}"
+  become: yes
+  become_user: "{{ vagrant_plugins_user }}"

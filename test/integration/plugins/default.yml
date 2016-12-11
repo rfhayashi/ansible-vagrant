@@ -4,7 +4,12 @@
   # override vagrant_plugins for this test
   vars:
     vagrant_version: 1.9.1
+    vagrant_plugins_user: vagrant
     vagrant_plugins:
-      - vagrant-cachier
+      - name: vagrant-cachier
+        version: 1.2.1
+      - name: nugrant
   tasks:
+    - group: name=vagrant
+    - user: name=vagrant group=vagrant
     - include: tasks/main.yml

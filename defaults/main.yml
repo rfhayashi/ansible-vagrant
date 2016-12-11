@@ -1,3 +1,4 @@
 ---
 vagrant_version: 1.9.1
+vagrant_plugins_user: root
 vagrant_plugins: []
