@@ -17,10 +17,13 @@ vagrant version:
 
 vagrant plugins - a list of vagrant plugins to be installed, the default
 is not to install any plugins, below an example of how to install the
-vagrant-cachier plugin:
+vagrant-cachier plugin with version 1.2.1 and the latest version
+of nugrant:
 
     vagrant_plugins:
-      - vagrant-cachier
+      - name: vagrant-cachier
+        version: 1.2.1
+      - name: nugrant
 
 Dependencies
 ------------
