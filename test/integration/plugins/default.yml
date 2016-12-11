@@ -9,6 +9,7 @@
       - name: vagrant-cachier
         version: 1.2.1
       - name: nugrant
+    vagrant_download_cache: /tmp/ansible-cache
   tasks:
     - group: name=vagrant
     - user: name=vagrant group=vagrant

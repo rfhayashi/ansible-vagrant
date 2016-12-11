@@ -1,7 +1,16 @@
 ---
+- name: creates vagrant download cache dir
+  file:
+    path: "{{ vagrant_download_cache }}"
+    state: directory
+    recurse: true
+- name: downloads vagrant
+  get_url:
+    url: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.rpm
+    dest: "{{ vagrant_download_cache }}/vagrant_{{ vagrant_version }}_x86_64.rpm"
 - name: installs vagrant
   yum:
-    name: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.rpm
+    name: "{{ vagrant_download_cache }}/vagrant_{{ vagrant_version }}_x86_64.rpm"
 
 - name: installs plugins with name but without version
   command: vagrant plugin install {{ item.name }}

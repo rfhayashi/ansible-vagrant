@@ -24,6 +24,12 @@ of nugrant:
       - name: vagrant-cachier
         version: 1.2.1
       - name: nugrant
+      
+vagrang download cache - a path to a dir where vagrant should be
+downloaded to. that avoids that the role needs to download vagrant
+again should the role be run again
+
+    vagrant_download_cache: /tmp/ansible-cache
 
 Dependencies
 ------------
