@@ -1,5 +1,5 @@
 ---
-vagrant_version: 1.9.1
+vagrant_version: 1.9.3
 vagrant_plugins_user: root
 vagrant_plugins: []
 vagrant_download_cache: /tmp/ansible-cache
